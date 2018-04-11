@@ -1,5 +1,9 @@
 import {Component} from '@angular/core';
+import {DomSanitizer} from '@angular/platform-browser';
+
 import {getWebSocket, wsDispatch} from '../ws-dispatch';
+
+const URL_PREFIX = 'http://localhost:3000/#';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +11,10 @@ import {getWebSocket, wsDispatch} from '../ws-dispatch';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  innerHash = 'foo';
   message = '';
 
-  constructor() {
+  constructor(private sanitizer: DomSanitizer) {
     getWebSocket(1234, this);
   }
 
@@ -19,7 +24,16 @@ export class AppComponent {
     wsDispatch(1234, type, payload);
   }
 
+  getInnerUrl() {
+    const url = URL_PREFIX + this.innerHash;
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+
   sendMessage() {
     this.dispatchSet('message', 'Hello from Angular! ' + Date.now());
+  }
+
+  swapInner() {
+    this.innerHash = this.innerHash === 'foo' ? 'bar' : 'foo';
   }
 }

@@ -1,3 +1,10 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+  height: 100vh;
+}
+
 .bar-container {
   height: 54px;
   width: 100%;
@@ -17,13 +24,6 @@ button {
 .foo-container {
   height: 220px;
   width: 100%;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  font-family: sans-serif;
-  height: 100vh;
 }
 
 footer {

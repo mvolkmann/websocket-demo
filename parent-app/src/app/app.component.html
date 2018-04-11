@@ -1,9 +1,22 @@
-<div class="container">
+<div class="app-container">
   <header>Angular Header</header>
   <section class="body">
     <button (click)="sendMessage()">Send Message</button>
-    <object class="foo-container" type="text/html" data="http://localhost:3000/#foo"></object>
-    <object class="bar-container" type="text/html" data="http://localhost:3000/#bar"></object>
+    <button (click)="swapInner()">Swap Inner</button>
+    <!--object class="inner-container" type="text/html" [data]="getInnerUrl()"></object-->
+    <object
+      *ngIf="innerHash === 'foo'"
+      class="foo-container"
+      type="text/html"
+      data="http://localhost:3000/#foo"
+    ></object>
+    <object
+      *ngIf="innerHash === 'bar'"
+      class="bar-container"
+      type="text/html"
+      data="http://localhost:3000/#bar"
+    ></object>
+
     {{message}}
   </section>
   <footer>Angular Footer</footer>
