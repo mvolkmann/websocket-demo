@@ -1,8 +1,11 @@
 # websocket-demo
 
-This demonstrates using websockets to communicate between
+This demonstrates using WebSockets to communicate between
 an Angular app and two React apps embedded inside it
 using &lt;object> tags.
+The Angular app was created using the Angular CLI.
+The React app was created using create-react-app.
+The WebSocket server was created using Node.js.
 
 To run this:
 
