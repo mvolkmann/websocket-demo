@@ -1,0 +1,43 @@
+.bar-container {
+  height: 54px;
+  width: 100%;
+}
+
+.body {
+  flex-grow: 1;
+  margin: 20px;
+}
+
+button {
+  border-radius: 4px;
+  margin-bottom: 10px;
+  padding: 4px;
+}
+
+.foo-container {
+  height: 220px;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+  height: 100vh;
+}
+
+footer {
+  background-color: linen;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 0;
+  text-align: center;
+}
+
+header {
+  background-color: linen;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 10px 0;
+  text-align: center;
+}
