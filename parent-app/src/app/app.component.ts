@@ -8,7 +8,6 @@ import {getWebSocket, wsDispatch} from '../ws-dispatch';
 })
 export class AppComponent {
   message = '';
-  ws = null;
 
   constructor() {
     getWebSocket(1234, this);
