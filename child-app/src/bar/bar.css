@@ -1,0 +1,9 @@
+.bar {
+  background-color: cornflowerblue;
+  border: solid blue 3px;
+  border-radius: 5px;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 10px;
+}

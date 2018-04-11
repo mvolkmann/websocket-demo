@@ -1,0 +1,30 @@
+.foo {
+  border: solid black 2px;
+  text-align: center;
+}
+
+.foo button {
+  border-radius: 4px;
+  margin-top: 10px;
+  padding: 4px;
+}
+
+.foo .header {
+  background-color: #222;
+  color: white;
+  padding: 10px;
+}
+
+.foo .logo {
+  animation: logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.foo .title {
+  font-size: 1.5em;
+}
+
+@keyframes logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
