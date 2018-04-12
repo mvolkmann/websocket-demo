@@ -1,14 +1,35 @@
 const WebSocket = require('ws');
 
-const portToWsMap = {};
+/*
+function dump(label, obj) {
+  console.log(label);
+  for (const prop in obj) {
+    if (obj.hasOwnProperty(prop)) {
+      console.log(prop, '=', obj[prop]);
+    }
+  }
+}
+*/
+
+const idToPortsMap = {};
 
 const ports = [1234, 1235];
 ports.forEach(connect);
 
 function connect(port) {
   const wss = new WebSocket.Server({port});
-  wss.on('connection', ws => {
+  wss.on('connection', (ws, req) => {
+    // Get a unique identifier for the client.  See
+    // https://stackoverflow.com/questions/14822708/
+    // how-to-get-client-ip-address-with-
+    // websocket-websockets-ws-library-in-node-js
+    const clientId =
+      req.headers['x-forwarded-for'] || req.connection.remoteAddress;
     console.log('websocket for port', port, 'opened');
+
+    let portToWsMap = idToPortsMap[clientId];
+    if (!portToWsMap) portToWsMap = idToPortsMap[clientId] = {};
+
     portToWsMap[port] = ws;
 
     ws.on('close', () => {
