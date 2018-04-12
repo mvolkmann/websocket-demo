@@ -23,6 +23,7 @@ function connect(port) {
     // https://stackoverflow.com/questions/14822708/
     // how-to-get-client-ip-address-with-
     // websocket-websockets-ws-library-in-node-js
+    // The x-forward-for header is set when there is a proxy server.
     const clientId =
       req.headers['x-forwarded-for'] || req.connection.remoteAddress;
     console.log('websocket for port', port, 'opened');

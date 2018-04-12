@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {DomSanitizer} from '@angular/platform-browser';
 
 import {getWebSocket, wsDispatch} from '../ws-dispatch';
 
@@ -14,7 +13,7 @@ export class AppComponent {
   innerHash = 'foo';
   message = '';
 
-  constructor(private sanitizer: DomSanitizer) {
+  constructor() {
     getWebSocket(1234, this);
   }
 
@@ -22,11 +21,6 @@ export class AppComponent {
     const type = '@@set ' + path;
     const payload = {path, value};
     wsDispatch(1234, type, payload);
-  }
-
-  getInnerUrl() {
-    const url = URL_PREFIX + this.innerHash;
-    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
   sendMessage() {
